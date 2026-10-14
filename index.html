@@ -37,9 +37,32 @@ nav{align-items:center}.nav-print{font:inherit;color:var(--text);background:tran
 @media print{html{scroll-behavior:auto}:root{color-scheme:light;--bg:#fff;--panel:#fff;--text:#111;--muted:#444;--accent:#245b40;--line:#ccc;--sand:#615136}body{background:#fff;font-size:11pt}.page{padding:0;max-width:none}.topbar nav,.skip-link,.profile-head:after,.project,.connect-symbol,footer{display:none}.topbar{padding:0 0 12px;margin-bottom:16px}.cv-grid{grid-template-columns:1fr 2fr;gap:18px}.profile-card{position:static}.card{border-radius:0;border-color:#ddd}.profile-head,.experience-pass,.work-link{background:#fff}.section{padding:20px}.profile-head,.profile-body{padding:18px}.greeting{font-size:25pt!important}.experience-pass{grid-template-columns:1fr}.experience-pass>div{display:grid;grid-template-columns:1fr 1fr;border-right:0;border-bottom:1px solid #ccc;padding:8px}.pass-title{margin:0;grid-row:span 2}.pass-stamp{transform:none}.pass-value{font-size:16pt}.background-row{break-inside:avoid}.button{background:#fff;border:1px solid #aaa;color:#111}.connect-actions{display:none}.print-contact{display:block;margin:12px 0 0;font-size:10pt}.intro{font-size:11pt}.logo{width:65px;height:65px}h1{font-size:29pt}.right-column{gap:16px}.timeline{border-color:#777}}
 
 .organization-link{color:var(--text);text-decoration:none}.organization-link span{color:var(--accent);font-size:.8em}.organization-link:hover{color:var(--accent);text-decoration:underline}
+
+/* Polished interactions are scoped to the existing business-card layout. */
+body{background-image:radial-gradient(circle at 1px 1px,rgba(170,205,189,.055) 1px,transparent 0),radial-gradient(ellipse at 0 0,#1c2a26 0,transparent 45%);background-size:28px 28px,100% 100%;background-color:var(--bg)}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(16,23,22,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+nav a{position:relative;transition:color .18s ease}nav a:after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .18s ease}nav a[aria-current="location"]{color:var(--text)}nav a[aria-current="location"]:after{transform:scaleX(1)}
+.section,#main{scroll-margin-top:112px}.profile-card{top:108px}.card{box-shadow:0 10px 28px rgba(0,0,0,.10)}
+.reading-progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:30;pointer-events:none}.reading-progress span{display:block;height:100%;width:0;background:var(--accent)}
+.experience-pass{grid-template-columns:1fr 1fr}.experience-pass>div:nth-child(2){border-right:0}.experience-pass .pass-stamp{transform:none}
+.travel-history{margin-top:22px}.travel-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px}.travel-heading h3{margin:0;font-size:1rem}.travel-heading>span{font-size:.73rem;color:var(--muted)}
+.destination-list{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}.destination-list li{display:flex;align-items:center;gap:7px;padding:7px 10px;background:rgba(211,197,159,.035);border:1px solid #435047;border-radius:7px;font-size:.78rem;color:var(--text);transition:background .18s ease,border-color .18s ease,transform .18s ease}.destination-list li:hover{background:rgba(211,197,159,.10);border-color:#887f65;transform:translateY(-2px)}.destination-flag{font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-size:1.18rem;line-height:1.25}
+.contact-link{border-radius:6px;transition:color .18s ease,background .18s ease}.contact-link:hover{color:var(--sand);background:rgba(170,205,189,.05)}.contact-link svg{transition:transform .18s ease}.contact-link:hover svg{transform:translateX(2px)}
+.work-link,.button,.nav-print{transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease}.work-link:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.15)}.button:hover{transform:translateY(-2px);box-shadow:0 7px 18px rgba(170,205,189,.12)}
+.email-tools{display:flex;align-items:center;gap:10px;margin:0 0 11px 29px;min-height:23px}.copy-email{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:5px;font:inherit;font-size:.7rem;padding:3px 8px;cursor:pointer}.copy-email:hover{color:var(--text);border-color:var(--accent)}#copy-status{font-size:.7rem;color:var(--accent)}
+@keyframes profile-arrival{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}#about{animation:profile-arrival .45s ease both}
+@media(max-width:900px){.experience-pass{grid-template-columns:1fr}.experience-pass>div:first-child{border-bottom:1px dashed #4c5d53}.experience-pass>div:last-child{border-bottom:0}.profile-card{top:108px}}
+@media(max-width:700px){.experience-pass{grid-template-columns:1fr 1fr}.experience-pass>div:first-child{border-bottom:0;border-right:1px dashed #4c5d53}.profile-card{position:static}.section,#main{scroll-margin-top:145px}.travel-heading{align-items:flex-start}.travel-heading>span{max-width:110px;text-align:right}.destination-list li{font-size:.76rem}}
+@media(max-width:420px){.experience-pass{grid-template-columns:1fr}.experience-pass>div:first-child{border-right:0;border-bottom:1px dashed #4c5d53}}
+@media(prefers-reduced-motion:reduce){#about{animation:none}.destination-list li,.contact-link,.contact-link svg,.work-link,.button,.nav-print,nav a,nav a:after{transition:none}.destination-list li:hover,.contact-link:hover svg,.work-link:hover,.button:hover{transform:none}}
+.section,#main{scroll-margin-top:var(--nav-offset,112px)}
+@media(min-width:900px){.profile-card{top:var(--nav-offset,108px)}}
+@media print{body{background:#fff}.topbar{position:static;background:none;backdrop-filter:none}.profile-card{position:static}.card{box-shadow:none}.reading-progress,.email-tools{display:none}#about{animation:none}.experience-pass{grid-template-columns:1fr}.destination-list li{background:none;border-color:#bbb;break-inside:avoid}.travel-heading>span{color:#555}}
+
 </style>
 </head>
 <body>
+<div class="reading-progress" aria-hidden="true"><span id="reading-progress-fill"></span></div>
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="page">
 <header class="topbar"><a class="wordmark" href="#main"><img src="assets/peter-guo-logo.png" alt="" width="30" height="30"><span>Peter Guo</span></a><nav aria-label="Main navigation"><a href="#about">About</a><a href="#background">Background</a><a href="#connect">Meet with Peter</a><button type="button" class="nav-print" id="print-cv">Print profile</button></nav></header>
@@ -53,6 +76,7 @@ nav{align-items:center}.nav-print{font:inherit;color:var(--text);background:tran
 <div class="profile-body">
 <h2>Contact &amp; links</h2>
 <a class="contact-link" href="mailto:pessygo777@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg><span>pessygo777@gmail.com</span></a>
+<div class="email-tools"><button type="button" class="copy-email" id="copy-email">Copy email</button><span id="copy-status" role="status" aria-live="polite"></span></div>
 <a class="contact-link" href="https://script.google.com/macros/s/AKfycbyyIpZbT3qL3b9ff_4iKBw2CViMlf8fUwXIxSxEKIq4sxhOe_4K_sE3h3kx5W2txWeH/exec"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4m8-4v4M4 11h16m-11 5h6"/></svg><span>Arrange a meeting</span></a>
 <a class="contact-link" href="https://github.com/pessygo777-crypto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-14-2 16"/></svg><span>GitHub / pessygo777-crypto</span></a>
 <a class="contact-link" href="https://www.linkedin.com/in/zihao-guo-249b72368/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.1M11 17v-7m0 3c0-4 6-4 6 0v4"/></svg><span>Connect on LinkedIn</span></a>
@@ -67,11 +91,12 @@ nav{align-items:center}.nav-print{font:inherit;color:var(--text);background:tran
 <section class="card section" id="about" aria-labelledby="about-title">
 <div class="section-heading"><h2 id="about-title" class="greeting">Hi, I’m Peter.</h2></div>
 <p class="intro"><strong>I help people get more from 3D scanning.</strong> I’m an Overseas Application Engineer at Scanology, bringing together technical support, customer communication, and a background in sales and marketing.</p>
-<div class="experience-pass" aria-label="International experience and language">
+<div class="experience-pass" aria-label="U.S. experience and English fluency">
 <div><p class="pass-title"><svg class="fact-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg>U.S. experience</p><span class="pass-value">10 years</span><span class="pass-note">Living in the United States</span></div>
-<div><p class="pass-title"><svg class="fact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 17 7-7 4 4 7-10M16 4h5v5"/></svg>Places explored</p><span class="pass-value">10+ states</span><span class="pass-note">Visited across the U.S.</span></div>
+
 <div><p class="pass-title"><svg class="fact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H9l-5 4Z"/><path d="M8 8h8M8 12h5"/></svg>English</p><span class="pass-stamp">Fluent</span><span class="pass-note">International communication</span></div>
 </div>
+<div class="travel-history"><div class="travel-heading"><h3>Where I’ve been</h3><span>International experience</span></div><ul class="destination-list"><li><span class="destination-flag" aria-hidden="true">🇬🇧</span><span>United Kingdom</span></li><li><span class="destination-flag" aria-hidden="true">🇫🇷</span><span>France</span></li><li><span class="destination-flag" aria-hidden="true">🇩🇪</span><span>Germany</span></li><li><span class="destination-flag" aria-hidden="true">🇹🇭</span><span>Thailand</span></li><li><span class="destination-flag" aria-hidden="true">🇮🇩</span><span>Indonesia</span></li><li><span class="destination-flag" aria-hidden="true">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><span>Scotland</span></li><li><span class="destination-flag" aria-hidden="true">🇲🇽</span><span>Mexico</span></li><li><span class="destination-flag" aria-hidden="true">🇨🇦</span><span>Canada</span></li><li><span class="destination-flag" aria-hidden="true">🇹🇷</span><span>Turkey</span></li><li><span class="destination-flag" aria-hidden="true">🇦🇪</span><span>Dubai</span></li><li><span class="destination-flag" aria-hidden="true">🇨🇭</span><span>Switzerland</span></li></ul></div>
 <div class="project" id="projects"><h3>Links &amp; selected work</h3><div class="project-links">
 <a class="work-link" href="https://github.com/pessygo777-crypto/pessygo777-crypto.github.io"><span class="link-icon" aria-hidden="true">&lt;/&gt;</span><span><strong>My personal website</strong><small>A personal introduction, links, and work.</small><small class="link-action">View source on GitHub</small></span></a>
 <a class="work-link" href="https://script.google.com/macros/s/AKfycbyyIpZbT3qL3b9ff_4iKBw2CViMlf8fUwXIxSxEKIq4sxhOe_4K_sE3h3kx5W2txWeH/exec"><span class="link-icon" aria-hidden="true">30′</span><span><strong>Meet with Peter</strong><small>Product demos, consultations &amp; remote support.</small><small class="link-action">Open the booking page</small></span></a>
@@ -99,6 +124,58 @@ nav{align-items:center}.nav-print{font:inherit;color:var(--text);background:tran
 </div>
 <script>
 document.getElementById("print-cv").addEventListener("click", function () { window.print(); });
+
+const copyEmailButton = document.getElementById('copy-email');
+const copyStatus = document.getElementById('copy-status');
+let copyFeedbackTimer;
+copyEmailButton.addEventListener('click', async function () {
+  clearTimeout(copyFeedbackTimer);
+  try {
+    await navigator.clipboard.writeText('pessygo777@gmail.com');
+    copyStatus.textContent = 'Copied';
+  } catch (error) {
+    copyStatus.textContent = 'Select the address to copy.';
+  }
+  copyFeedbackTimer = setTimeout(function () { copyStatus.textContent = ''; }, 4000);
+});
+const progressFill = document.getElementById('reading-progress-fill');
+let progressFramePending = false;
+function updateReadingProgress() {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+  progressFill.style.width = Math.max(0, Math.min(1, progress)) * 100 + '%';
+  progressFramePending = false;
+}
+window.addEventListener('scroll', function () {
+  if (!progressFramePending) {
+    progressFramePending = true;
+    requestAnimationFrame(updateReadingProgress);
+  }
+}, { passive: true });
+window.addEventListener('resize', updateReadingProgress);
+updateReadingProgress();
+const navigationLinks = [...document.querySelectorAll('nav a[href^="#"]')];
+const navigationSections = navigationLinks.map(function (link) { return document.querySelector(link.getAttribute('href')); }).filter(Boolean);
+function updateActiveNavigation() {
+  const cutoff = document.querySelector('.topbar').getBoundingClientRect().height + 32;
+  let active = navigationSections[0];
+  for (const section of navigationSections) {
+    if (section.getBoundingClientRect().top <= cutoff) active = section;
+  }
+  for (const link of navigationLinks) {
+    if (active && link.getAttribute('href') === '#' + active.id) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  }
+}
+window.addEventListener('scroll', updateActiveNavigation, { passive: true });
+function updateNavigationOffset() {
+  document.documentElement.style.setProperty('--nav-offset', document.querySelector('.topbar').getBoundingClientRect().height + 24 + 'px');
+  updateActiveNavigation();
+}
+window.addEventListener('resize', updateNavigationOffset);
+if ('ResizeObserver' in window) new ResizeObserver(updateNavigationOffset).observe(document.querySelector('.topbar'));
+updateNavigationOffset();
+
 </script>
 </body>
 </html>
